@@ -9,6 +9,7 @@ pillow = "*"
 django-ckeditor = "*"
 django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
 dj-database-url = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
