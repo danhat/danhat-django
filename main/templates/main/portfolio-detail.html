@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section class="page-section">
+  <div>
+    <div class="container">     
+      <div>
+        <h1>{{object.name}}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {{object.body|safe}}
+  </div>
+</section>
+
+
+<!-- ================================
+End Content
+================================= -->
+{%endblock%}

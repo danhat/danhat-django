@@ -1,0 +1,337 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+
+
+<!-- home section -->
+<section class="page-section my-bg-light" id="home">
+  <div class="container">
+    <div class="row" style="padding-top: 40px;">
+      <div class="col" id="headshot-container">
+        <img class="center" id="headshot" src="{{me.userprofile.avatar.url}}" alt="{{me.first_name|title}} {{me.last_name|title}} avatar">
+      </div>
+      <div class="col">
+        <h2 style="padding-top: 40px;" class="section-heading text-uppercase text-center">Danielle Hatten</h2>
+        <p class="text-center">
+          {{me.userprofile.title}} <br>
+          Bachelor of Science in Computer Science, 2020 <br>
+          University of Illinois at Chicago <br> <br>
+        </p>
+        <p class="text-center text-muted">
+          Women in Computer Science<br>
+          National Society of Black Engineers<br>
+          Society of Women Engineers<br>
+          National Society of Collegiate Scholars<br>
+          100 Chicago<br>
+        </p>
+      </div>
+      
+    </div>      
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Skills -->
+<section class="page-section my-bg-dark" id="skills">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Skills</h2>
+        <h3 class="section-subheading text-muted"></h3>
+      </div>  
+    </div>   
+  
+    <div class="container-fluid section-container"></div>
+      <div class="row text-muted">
+
+        <div class="col text-center">
+          <ul class="three-column" id="skills-list">
+            {% for k in skills %}
+              {% if k.is_key_skill %}
+                <li>{{k.name}}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div> 
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+<!-- Portfolio Grid -->
+<section class="page-section my-bg-light" id="portfolio">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Portfolio</h2>
+        <h3 class="section-subheading text-muted">Check out some of my recent work!</h3>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="multi-item" class="container-fluid section-container carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
+
+    <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-item active">
+        <div class="row section-grid">
+        {% for p in portfolio %}
+          {% if forloop.counter < 5 %}
+          {% if p.is_active %}
+            <div class="col-sm-3 col-md-3 portfolio-square">
+
+              <a href={{p.link}} target="_blank">
+                <img alt="" class="img-responsive center-block" src="{{p.image.url}}">
+                <div class="proj-name">
+                  {{p.name}}
+                </div>
+                <div class="proj-description">
+                  <p>
+                    {{p.description}}
+                  </p>
+                </div>
+              </a>
+              
+            </div>
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="row section-grid">
+        {% for p in portfolio %}
+          {% if forloop.counter > 4 %}
+          {% if p.is_active %}
+            <div class="col-sm-3 col-md-3 portfolio-square">
+
+              <a href="https://github.com/danhat/HuffmanCoding" target="_blank">
+                <img alt="" class="img-responsive center-block" src="{{p.image.url}}">
+                <div class="proj-name">
+                  {{p.name}}
+                </div>
+                <div class="proj-description">
+                  <p>
+                    {{p.description}}
+                  </p>
+                </div>
+              </a>
+              
+            </div>
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item" data-slide-to="1"></li>
+    </ol>
+   
+
+  </div>   
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Certificates Grid-->
+<!-- <section class="page-section" id="certificates">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Certificates</h2>
+        <h3 class="section-subheading text-muted">Check out some of my recent projects!</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid section-container">
+
+    <div class="row section-grid">
+
+      
+      {% for c in certificates %}
+        {% if c.is_active %}
+          <div class="col-sm-3 col-md-3 section-square">
+            <div class="card">
+              <a href="" target="_blank">
+                <h2>{{c.title}}</h2>
+                <p>{{c.name|title}}</p>
+                <p>{{c.description}}</p>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+    
+  </div>
+</section>   -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- blog Grid -->
+<!-- <section class="page-section my-bg-light" id="blog">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Blog</h2>
+        <h3 class="section-subheading text-muted">Check out some of my recent posts!</h3>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container-fluid section-container">
+
+    <div class="row section-grid">
+      
+      {% for b in blogs %}
+        {% if b.is_active %}
+          <div class="col-sm-3 col-md-3 blog-card">
+            <a target="_blank">
+              <img alt="" class="img-responsive center-block" src="{{b.image.url}}">
+              <div class="card-name">
+                {{b.name}}
+              </div>
+              <div class="card-description">
+                {{b.description}}
+              </div>
+            </a>
+
+          </div>
+        {% endif %}
+      {% endfor %}
+      
+    </div>
+    
+  </div>
+</section>  -->
+
+
+
+
+<!-- contact section -->
+<section class="page-section my-bg-dark" id="contact">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Contact</h2>
+        <h3 class="section-subheading text-muted">Send me a message!</h3>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container-fluid section-container text-uppercase">
+    <form id="contactForm" method="POST" action="/contact/">
+      <!-- {% csrf_token %} 
+      {{ form }}  -->
+
+      {% csrf_token %}
+      <div class="wrap-input100 bg1">
+        <span class="label-input100" for="name">Name *</span>
+        <input class="input100" id="name" type="text" name="name" placeholder="Enter Your Name Here">
+      </div>
+
+      <div class="two-column">
+        <div class="wrap-input100 bg1">
+          <span class="label-input100" for="email">Email *</span>
+          <input class="input100" id="email" type="text" name="email" placeholder="Enter Your Email Here">
+        </div>
+
+        <div class="wrap-input100 bg1">
+          <span class="label-input100" for="phone_number">Phone Number</span>
+          <input class="input100" id="phone_number" type="text" name="phone" value="+1" placeholder="Enter Your Phone Number Here">
+        </div>
+      </div>
+
+
+      <div class="wrap-input100 bg0">
+        <span class="label-input100" for="message">Message*</span>
+        <textarea class="input100" id="message" name="message" placeholder="Enter Your Message Here"></textarea>
+      </div>
+
+
+      <div class="contact-button-div">
+        <input class='btn btnPrimary' type="submit" value="Send">
+      </div>
+    </form>
+  </div>
+  
+</section>
+{% endblock %}
+<!-- ================================
+End Content
+================================= -->

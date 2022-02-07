@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+
+<section class="page-section my-bg-light">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Blog</h2>
+        <h3 class="section-subheading text-muted">Check out my recent posts!</h3>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container-fluid>
+
+    <div>
+      {% for obj in object_list %}
+			<div class="col-md-6 pColMain">
+				<div class="pCol">
+					<a href="{% url 'main:blog' slug=obj.slug %}" >
+					  <h4>{{obj.name}}</h4>
+					</a>
+          <img src="{{obj.image.url}}" alt="..." class="pImg">
+				</div>
+			</div>
+			{% endfor %}
+    </div>
+    
+  </div>
+</section> 
+<!-- ================================
+End Content
+================================= -->
+{%endblock%} 

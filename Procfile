@@ -1,0 +1,1 @@
+web: gunicorn danhat.wsgi --log-file -
