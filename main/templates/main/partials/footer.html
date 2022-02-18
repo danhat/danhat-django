@@ -1,27 +1,40 @@
 {% load static %}
 
 
-<!-- <footer class="page-section my-bg-light"> -->
+
 <footer> 
 
   <div class="container text-center" id="footer-container">
     <div class="row">
       <div class="col-lg-12">
-        <a class="footer-link" href="https://www.linkedin.com/in/danhat/" target="_blank">
-          <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a class="footer-link" href="https://www.github.com/danhat/" target="_blank">
-          <i class="fa fa-github" aria-hidden="true"></i>
-        </a>
-        <a class="footer-link" data-tooltip="Resume" href="{{me.userprofile.cv.url}}" target="_blank">
-          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-        </a>
+
+        <div class="tooltip-area">
+          <a class="footer-link" href="https://www.linkedin.com/in/danhat/" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <span class="tooltip">LinkedIn Profile</span>
+        </div>
+
+        <div class="tooltip-area">
+          <a class="footer-link" href="https://www.github.com/danhat/" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <span class="tooltip">Github Profile</span>
+        </div>
+
+        <div class="tooltip-area">
+          <a class="footer-link" href="{{me.userprofile.cv.url}}" target="_blank">
+            <i class="fa-solid fa-file"></i>
+          </a>
+          <span class="tooltip">Resume</span>
+        </div>
+        
       </div>
     </div>
 
     <div>
       <br>
-      <p>Copyright © {% now 'Y' %} All rights reserved. Designed by Danielle Hatten</p>
+      <p>Copyright © {% now 'Y' %} All rights reserved. Designed by Danielle Hatten.</p>
     </div>
 
   </div>

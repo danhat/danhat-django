@@ -82,7 +82,7 @@ Start Content
         <div class="col text-center">
           <ul class="three-column" id="skills-list">
             {% for k in skills %}
-              {% if k.is_key_skill %}
+              {% if k.is_active %}
                 <li>{{k.name}}</li>
               {% endif %}
             {% endfor %}
@@ -114,9 +114,9 @@ Start Content
   </div>
 
 
-  <div id="multi-item" class="container-fluid section-container carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
+  <div id="carousel-section" class="container-fluid section-container carousel slide" data-bs-interval="false" data-ride="carousel">
 
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner">
 
       <div class="carousel-item active">
         <div class="row section-grid">
@@ -126,15 +126,11 @@ Start Content
             <div class="col-sm-3 col-md-3 portfolio-square">
 
               <a href={{p.link}} target="_blank">
-                <img alt="" class="img-responsive center-block" src="{{p.image.url}}">
-                <div class="proj-name">
-                  {{p.name}}
-                </div>
-                <div class="proj-description">
-                  <p>
-                    {{p.description}}
-                  </p>
-                </div>
+                
+                <img alt="..." class="img-responsive center-block" src="{{p.image.url}}">
+                <span class="overlay-text">{{p.name}}</span>
+                <span class="overlay-description">{{p.description}}</span>
+                
               </a>
               
             </div>
@@ -151,16 +147,10 @@ Start Content
           {% if p.is_active %}
             <div class="col-sm-3 col-md-3 portfolio-square">
 
-              <a href="https://github.com/danhat/HuffmanCoding" target="_blank">
-                <img alt="" class="img-responsive center-block" src="{{p.image.url}}">
-                <div class="proj-name">
-                  {{p.name}}
-                </div>
-                <div class="proj-description">
-                  <p>
-                    {{p.description}}
-                  </p>
-                </div>
+              <a href={{p.link}} target="_blank">
+                <img alt="..." class="img-responsive center-block" src="{{p.image.url}}">
+                <span class="overlay-text">{{p.name}}</span>
+                <span class="overlay-description">{{p.description}}</span>
               </a>
               
             </div>
@@ -173,10 +163,19 @@ Start Content
     </div>
 
 
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item" data-slide-to="1"></li>
-    </ol>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carousel-section" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carousel-section" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carousel-section" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-section" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button> -->
    
 
   </div>   
@@ -281,6 +280,9 @@ Start Content
 
 
 
+
+
+
 <!-- contact section -->
 <section class="page-section my-bg-dark" id="contact">
 
@@ -296,9 +298,7 @@ Start Content
 
   <div class="container-fluid section-container text-uppercase">
     <form id="contactForm" method="POST" action="/contact/">
-      <!-- {% csrf_token %} 
-      {{ form }}  -->
-
+      
       {% csrf_token %}
       <div class="wrap-input100 bg1">
         <span class="label-input100" for="name">Name *</span>

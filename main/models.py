@@ -6,17 +6,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 # Create your models here.
-class Skill(models.Model):
-    class Meta:
-        verbose_name_plural = 'Skills'
-        verbose_name = 'Skill'
-    
-    name = models.CharField(max_length=20, blank=True, null=True)
-    is_key_skill = models.BooleanField(default=True)
-    
-    def __str__(self):
-        return self.name
-
 class UserProfile(models.Model):
 
     class Meta:
@@ -27,11 +16,24 @@ class UserProfile(models.Model):
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
-    #skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
+
+
+class Skill(models.Model):
+    class Meta:
+        verbose_name_plural = 'Skills'
+        verbose_name = 'Skill'
+        ordering = ["importance"]
+    
+    name = models.CharField(max_length=30, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    importance = models.IntegerField(blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
 
 
 class Messages(models.Model):
@@ -56,13 +58,14 @@ class Testimonial(models.Model):
     class Meta:
         verbose_name_plural = 'Testimonials'
         verbose_name = 'Testimonial'
-        ordering = ["name"]
+        ordering = ["importance"]
 
     thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
     name = models.CharField(max_length=200, blank=True, null=True)
     role = models.CharField(max_length=200, blank=True, null=True)
     quote = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    importance = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -92,10 +95,10 @@ class Media(models.Model):
 class Portfolio(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Portfolio Profiles'
+        verbose_name_plural = 'Portfolio Projects'
         verbose_name = 'Portfolio'
-        # ordering = ["name"]
         ordering = ['importance']
+
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
@@ -121,9 +124,9 @@ class Portfolio(models.Model):
 class Blog(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Blog Profiles'
+        verbose_name_plural = 'Blogs'
         verbose_name = 'Blog'
-        ordering = ["timestamp"]
+        ordering = ["importance"]
 
     timestamp = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=200, blank=True, null=True)
@@ -133,6 +136,7 @@ class Blog(models.Model):
     slug = models.SlugField(null=True, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to="blog")
     is_active = models.BooleanField(default=True)
+    importance = models.IntegerField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -151,12 +155,14 @@ class Certificate(models.Model):
     class Meta:
         verbose_name_plural = 'Certificates'
         verbose_name = 'Certificate'
+        ordering = ['importance']
 
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    importance = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.name

@@ -7,102 +7,22 @@ Start Navigation Bar
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
   <div class="container">
-    <a class="navbar-brand text-uppercase js-scroll-trigger" href="{% url 'main:index' %}" id="myname">Danielle Hatten</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{% url 'main:index'}">Danielle Hatten</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
-      <i class="fas fa-bars"></i>
+      <i class="fa-solid fa-angle-down"></i>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav text-uppercase ml-auto">
-        
-        <li class="nav-item">
-          <!-- <a  class="nav-link js-scroll-trigger" href="{% anchor 'main:index' 'home'%}">Home</a> -->
-          <a class="nav-link js-scroll-trigger" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <!-- <a class="nav-link js-scroll-trigger" href="{% anchor 'main:index' 'skills' %}">Skills</a> -->
-          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-        </li>
-        <li class="nav-item">
-          <!-- <a class="nav-link js-scroll-trigger" href="{% anchor 'main:index' 'portfolio' %}">Portfolio</a> -->
-          <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#certificates">Certificates</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
-        </li> -->
-        <li class="nav-item">
-          <!-- <a class="nav-link js-scroll-trigger" href="{% anchor 'main:index' 'contact' %}">Contact</a> -->
-          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-
-
-
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="https://www.linkedin.com/in/danhat/" target="_blank">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="https://www.github.com/danhat/" target="_blank">
-            <i class="fa fa-github" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger tooltip-bottom" data-tooltip="Resume" href="{{me.userprofile.cv.url}}" target="_blank">
-            <span class="tooltiptext">Resume</span>
-            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-          </a>
-        </li>  -->
-
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="https://www.linkedin.com/in/danhat/" target="_blank">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="https://www.github.com/danhat/" target="_blank">
-            <i class="fa fa-github" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger tooltip-bottom" data-tooltip="Resume" href="{{me.userprofile.cv.url}}" target="_blank">
-            <span class="tooltiptext">Resume</span>
-            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-          </a>
-        </li> -->
-
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <!-- <li class="nav-item"><a  class="nav-link" href="{% anchor 'main:index' 'home'%}">Home</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
-
-      
-      
     </div>
-    
   </div>
-  
-  <!-- <div class="connect-group text-center">
-    <div class="nav-item">
-      <a class="nav-link js-scroll-trigger" href="https://www.linkedin.com/in/danhat/" target="_blank">
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-      </a>
-    </div>
-    <div class="two-column">
-      <div class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="https://www.github.com/danhat/" target="_blank">
-          <i class="fa fa-github" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link js-scroll-trigger tooltip-bottom" data-tooltip="Resume" href="{{me.userprofile.cv.url}}" target="_blank">
-          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </div> -->
-
 </nav>
 
 <!-- ================================
