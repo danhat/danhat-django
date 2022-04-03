@@ -43,17 +43,12 @@ Start Content
       </div>
       <div class="col">
         <h2 style="padding-top: 40px;" class="section-heading text-uppercase text-center">Danielle Hatten</h2>
+        <h5 class="text-center">{{me.userprofile.title}}</h5>
         <p class="text-center">
-          {{me.userprofile.title}} <br>
-          Bachelor of Science in Computer Science, 2020 <br>
-          University of Illinois at Chicago <br> <br>
+          {{me.userprofile.subtitle | linebreaksbr}} 
         </p>
         <p class="text-center text-muted">
-          Women in Computer Science<br>
-          National Society of Black Engineers<br>
-          Society of Women Engineers<br>
-          National Society of Collegiate Scholars<br>
-          100 Chicago<br>
+          {{me.userprofile.bio | linebreaksbr}}
         </p>
       </div>
       
@@ -79,11 +74,23 @@ Start Content
     <div class="container-fluid section-container"></div>
       <div class="row text-muted">
 
-        <div class="col text-center">
+        <div class="col text-center skills-div">
           <ul class="three-column" id="skills-list">
-            {% for k in skills %}
-              {% if k.is_active %}
-                <li>{{k.name}}</li>
+            {% for sk in skills %}
+              {% if sk.is_active %}
+                <li class="center">
+                  
+                  {% if sk.image %}
+                    <div class="skill-icon tooltip-area">
+                      <img src="{{sk.image.url}}">
+                      <span class="tooltip">{{sk.name}}</span>
+                    </div>
+
+                  {% else %}
+                    <span class="skill-name">{{sk.name}}</span>
+                  {% endif %}
+
+                </li>
               {% endif %}
             {% endfor %}
           </ul>
@@ -199,7 +206,7 @@ Start Content
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">Certificates</h2>
-        <h3 class="section-subheading text-muted">Check out some of my recent projects!</h3>
+        <h3 class="section-subheading text-muted">Check out some of my certifications!</h3>
       </div>
     </div>
   </div>
@@ -212,13 +219,7 @@ Start Content
       {% for c in certificates %}
         {% if c.is_active %}
           <div class="col-sm-3 col-md-3 section-square">
-            <div class="card">
-              <a href="" target="_blank">
-                <h2>{{c.title}}</h2>
-                <p>{{c.name|title}}</p>
-                <p>{{c.description}}</p>
-              </a>
-            </div>
+            
           </div>
         {% endif %}
       {% endfor %}
@@ -257,16 +258,8 @@ Start Content
       
       {% for b in blogs %}
         {% if b.is_active %}
-          <div class="col-sm-3 col-md-3 blog-card">
-            <a target="_blank">
-              <img alt="" class="img-responsive center-block" src="{{b.image.url}}">
-              <div class="card-name">
-                {{b.name}}
-              </div>
-              <div class="card-description">
-                {{b.description}}
-              </div>
-            </a>
+          <div class="col-sm-3 col-md-3 section-square">
+            
 
           </div>
         {% endif %}

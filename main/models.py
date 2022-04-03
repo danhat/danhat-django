@@ -14,7 +14,8 @@ class UserProfile(models.Model):
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
-    title = models.CharField(max_length=200, blank=True, null=True)
+    title = models.CharField(max_length=250, blank=True, null=True)
+    subtitle = models.TextField(blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
 
@@ -29,6 +30,7 @@ class Skill(models.Model):
         ordering = ["importance"]
     
     name = models.CharField(max_length=30, blank=True, null=True)
+    image = models.FileField(blank=True, null=True, upload_to="skills")
     is_active = models.BooleanField(default=True)
     importance = models.IntegerField(blank=True, null=True)
     

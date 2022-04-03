@@ -167,7 +167,7 @@ html {
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: var(--nav-text-highlight-color);
+  color: var(--nav-text-color);
 }
 
 
@@ -180,7 +180,14 @@ html {
 }
 
 /* white nav*/
-#mainNav .navbar-nav .nav-item .nav-link {
+/* #mainNav .navbar-nav .nav-item .nav-link {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.95rem;
+  color: blue;
+  letter-spacing: 0.0625em;
+} */
+
+#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.95rem;
   color: black;
@@ -188,9 +195,10 @@ html {
 }
 
 
+
 /* hover on white nav*/
 #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link.active, #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link:hover {
-  color: #737373;
+  color: var(--nav-text-color);
 }
 
 
@@ -203,6 +211,25 @@ html {
 #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link.active, #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
   color: var(--nav-text-highlight-color);
 }
+
+
+/* smaller screen navy nav */
+/* #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link {
+  color: var(--nav-text-color);
+}
+
+#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link.active, #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+  color: var(--nav-text-highlight-color);
+} */
+
+/* shrink nav */
+/* 
+#navbarResponsive.navbar-collapse.collapse.show ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0 li.nav-item a.nav-link {
+  color: pink;
+} */
+
+
+
 
 
 
@@ -227,12 +254,61 @@ html {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--my-navy);
-    color: var(--nav-text-color)
+    /* color: orangered; */
   }
 
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
   }
+
+
+}
+
+
+@media (max-width: 992px) {
+  /* #mainNav {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    background-color: transparent;
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand {
+    font-size: 1.5em;
+    transition: font-size 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand img {
+    height: 2rem;
+    transition: height 0.3s ease-in-out;
+  } */
+  #mainNav.navbar-shrink {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--my-navy);
+  }
+
+  /* #mainNav.navbar-shrink .navbar-brand {
+    font-size: 1.25em;
+  } */
+
+  #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link {
+    color: var(--nav-text-color);
+  }
+  
+  #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link.active, #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top .navbar-nav .nav-item .nav-link:hover {
+    color: var(--nav-text-highlight-color);
+  }
+
+
+  #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link {
+    color: var(--nav-text-color);
+  }
+  
+  #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link.active, #mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+    color: var(--nav-text-highlight-color);
+  }
+
+
 }
 
 
